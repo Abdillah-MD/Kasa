@@ -41,7 +41,7 @@ function Header() {
             <Logo src={KasaLogo} alt="Kasa" />
             <Nav>
                 <NavLink to="/">Accueil</NavLink>
-                <NavLink to="/">À propos</NavLink>
+                <NavLink to="/about">À propos</NavLink>
             </Nav>
         </SecHeader>
     )
