@@ -8,6 +8,9 @@ const SecHeader = styled.header`
     justify-content: space-between;
     padding: 30px 80px;
     align-items: center;
+    @media (max-width: 768px) {
+        padding: 20px;
+    }
 `
 
 const Nav = styled.div`
@@ -15,6 +18,9 @@ const Nav = styled.div`
     display: flex;
     justify-content: space-around;
     color: black;
+    @media (max-width: 768px) {
+        width: 50%;
+    }
 `
 const NavLink = styled(Link)`
     color: black;
@@ -24,6 +30,9 @@ const NavLink = styled(Link)`
 `
 const Logo = styled.img`
     width: 10%;
+    @media (max-width: 768px) {
+        width: 30%;
+    }
 `
 
 function Header() {

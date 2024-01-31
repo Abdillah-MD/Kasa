@@ -3,34 +3,12 @@ import ImageBcgMer from '../../assets/lamer_kasa.png'
 import styled from 'styled-components'
 import { locationList } from '../../Data/LocationList'
 import AppartItem from '../../component/AppartItem/main'
+import Banner from '../../component/Banner/main'
 
 const Section = styled.section`
     margin: 20px 80px;
-`
-
-const SectionTitle = styled.div`
-    height: 180px;
-    border-radius: 15px;
-    background-image: url('${ImageBcgMer}');
-    background-position: center center;
-    background-size: 100%;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 80px;
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: inherit;
-        filter: brightness(0.5);
+    @media (max-width: 768px) {
+        margin: 20px 20px;
     }
 `
 
@@ -43,16 +21,25 @@ const AppartList = styled.div`
     padding: 40px;
     background: #f6f6f6;
     border-radius: 25px;
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        padding: 20px 0;
+        background: white;
+        gap: 20px;
+    }
+    div {
+        @media (max-width: 768px) {
+            height: 280px !important;
+        }
+    }
 `
 
 function Home() {
     return (
         <Section>
-            <SectionTitle>
-                <h1 style={{ position: 'absolute', fontSize: '2.3em' }}>
-                    Chez vous, partout et ailleurs
-                </h1>
-            </SectionTitle>
+            <Banner cheminImage={ImageBcgMer}>
+                Chez vous, partout et ailleurs
+            </Banner>
             <AppartList>
                 {locationList.map(({ id, title, cover }) => (
                     <div

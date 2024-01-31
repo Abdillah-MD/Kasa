@@ -9,6 +9,11 @@ const SectionFooter = styled.footer`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    img {
+        @media (max-width: 768px) {
+            width: 20% !important;
+        }
+    }
 `
 
 function Footer() {
