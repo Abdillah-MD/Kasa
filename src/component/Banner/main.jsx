@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const SectionTitle = styled.div`
-    height: 180px;
+    height: 150px;
     border-radius: 25px;
     // background-image: url('');
     background-position: center center;
@@ -17,16 +17,6 @@ const SectionTitle = styled.div`
     position: relative;
     overflow: hidden;
     font-size: 0.85rem;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: inherit;
-        filter: brightness(0.4);
-    }
     @media (max-width: 1024px) {
         margin: 20px 0;
         font-size: 0.7em;
@@ -39,9 +29,12 @@ const SectionTitle = styled.div`
     }
 `
 
-function Banner({ children, cheminImage }) {
+function Banner({ children, cheminImage, brightness }) {
     return (
-        <SectionTitle style={{ backgroundImage: `url(${cheminImage})` }}>
+        <SectionTitle
+            className={brightness}
+            style={{ backgroundImage: `url(${cheminImage})` }}
+        >
             <h1 style={{ position: 'absolute', padding: '20px' }}>
                 {children}
             </h1>
@@ -52,6 +45,7 @@ function Banner({ children, cheminImage }) {
 Banner.propTypes = {
     children: PropTypes.string,
     cheminImage: PropTypes.string.isRequired,
+    brightness: PropTypes.string, // Ajout prop pour assombrir le composant
 }
 
 export default Banner

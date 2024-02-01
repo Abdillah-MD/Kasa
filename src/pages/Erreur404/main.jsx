@@ -20,6 +20,9 @@ const SectionErr = styled.section`
             padding: 0 40px;
         }
     }
+    a:hover {
+        color: #ff6060;
+    }
 `
 
 function Err404() {

@@ -27,7 +27,7 @@ const TextCard = styled.h2`
     bottom: 15px;
     font-size: 1.1em;
     padding: 0 10px;
-    text-shadow: 2px 2px 10px black;
+    text-shadow: 2px 2px 4px black;
 `
 
 function AppartItem({ title, cover }) {

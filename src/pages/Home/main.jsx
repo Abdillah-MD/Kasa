@@ -1,16 +1,10 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ImageBcgMer from '../../assets/lamer_kasa.png'
 import styled from 'styled-components'
 import { locationList } from '../../Data/LocationList'
 import AppartItem from '../../component/AppartItem/main'
 import Banner from '../../component/Banner/main'
-
-const Section = styled.section`
-    margin: 20px 80px;
-    @media (max-width: 768px) {
-        margin: 20px 20px;
-    }
-`
+import '../../style/component/banner.css'
 
 const AppartList = styled.div`
     display: grid;
@@ -36,13 +30,14 @@ const AppartList = styled.div`
 
 function Home() {
     return (
-        <Section>
-            <Banner cheminImage={ImageBcgMer}>
+        <section>
+            <Banner brightness={`bannerBrightness`} cheminImage={ImageBcgMer}>
                 Chez vous, partout et ailleurs
             </Banner>
             <AppartList>
                 {locationList.map(({ id, title, cover }) => (
-                    <div
+                    <Link
+                        to={`/appartements/${id}`}
                         key={id}
                         style={{
                             borderRadius: '15px',
@@ -51,10 +46,10 @@ function Home() {
                         }}
                     >
                         <AppartItem cover={cover} title={title} />
-                    </div>
+                    </Link>
                 ))}
             </AppartList>
-        </Section>
+        </section>
     )
 }
 
