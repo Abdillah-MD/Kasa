@@ -1,7 +1,8 @@
 import Banner from '../../component/Banner/main'
 import ImageBcgMontagne from '../../assets/lamontagne_kasa.png'
 import Collapse from '../../component/Collapse/main'
-import { aboutUsList } from '../../Data/AboutUs'
+import { aboutUsList } from '../../Data/aboutUs'
+import '../../style/pages/aboutUs.css'
 
 function AboutUs() {
     return (
@@ -15,6 +16,7 @@ function AboutUs() {
                     title={title}
                     description={description}
                     IsVisible={true}
+                    marge={`aboutUs-collapse`}
                 />
             ))}
         </section>

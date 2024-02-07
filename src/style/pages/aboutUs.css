@@ -1,0 +1,16 @@
+/* Page À propos de nous */
+.aboutUs-collapse {
+    margin: 20px 150px !important;
+}
+
+@media (max-width: 1024px) {
+    .aboutUs-collapse{
+        margin: 40px 90px !important;
+    }
+}
+@media (max-width: 768px) {
+    .aboutUs-collapse{
+        margin: 30px 0 !important;
+    }
+    
+}

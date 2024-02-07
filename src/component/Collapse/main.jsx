@@ -35,15 +35,8 @@ const spin180 = keyframes`
 `
 
 const Dl = styled.dl`
-    margin: 50px 150px;
     overflow: hidden;
     position: relative;
-    @media (max-width: 1024px) {
-        margin: 40px 80px;
-    }
-    @media (max-width: 768px) {
-        margin: 30px 50px;
-    }
 `
 
 const Dt = styled.dt`
@@ -93,7 +86,7 @@ const Dd = styled.dd`
     }
 `
 
-function Collapse({ title, description }) {
+function Collapse({ title, description, marge }) {
     const [IsVisible, setIsVisible] = useState(false)
 
     function handleClick() {
@@ -101,7 +94,7 @@ function Collapse({ title, description }) {
     }
 
     return (
-        <Dl>
+        <Dl className={marge}>
             {
                 <Dt onClick={handleClick} IsVisible={IsVisible}>
                     {title} <i className="fa-solid fa-chevron-up"></i>
@@ -116,6 +109,7 @@ Collapse.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     IsVisible: PropTypes.bool,
+    marge: PropTypes.string,
 }
 
 export default Collapse

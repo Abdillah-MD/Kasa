@@ -1,0 +1,23 @@
+/* Page qui contient les infos appartements */
+
+.appartements_collapse {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 80px;
+    gap: 10px;
+}
+
+@media (max-width: 1024px) {
+    .appartements_collapse{
+        margin: 40px 50px !important;
+    }
+}
+@media (max-width: 768px) {
+    .appartements_collapse{
+        grid-template-columns: 1fr;
+        margin: 10px 20px !important;
+    }
+    .appartements_collapse dt {
+        font-size: 14px;
+    }
+}
