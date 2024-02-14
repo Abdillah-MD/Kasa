@@ -5,7 +5,7 @@ import { useState } from 'react'
 function SlideShow({ pictures, title }) {
     let [pic, setPic] = useState(0)
 
-    console.log(pic)
+    // Permet d'animer le click droit
     function clickDroit() {
         setPic(pic + 1)
         if (pic >= pictures.length - 1) {
@@ -14,6 +14,7 @@ function SlideShow({ pictures, title }) {
         console.log(pic)
     }
 
+    // Permet d'animer le click gauche
     function clickGauche() {
         setPic(pic - 1)
         if (pic === 0) {
@@ -25,8 +26,21 @@ function SlideShow({ pictures, title }) {
     return (
         <div className="slideShow">
             <img className="slideShow_img" src={pictures[pic]} alt={title} />
-            <i className="fa-solid fa-chevron-right" onClick={clickDroit}></i>
-            <i className="fa-solid fa-chevron-left" onClick={clickGauche}></i>
+            {pictures.length === 1 ? null : (
+                <>
+                    <i
+                        className="fa-solid fa-chevron-right"
+                        onClick={clickDroit}
+                    ></i>
+                    <i
+                        className="fa-solid fa-chevron-left"
+                        onClick={clickGauche}
+                    ></i>
+                    <p className="slideShow_nb">{`${pic + 1}/${
+                        pictures.length
+                    }`}</p>
+                </>
+            )}
         </div>
     )
 }

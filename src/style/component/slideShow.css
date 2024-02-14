@@ -16,6 +16,13 @@
     object-fit: cover;
 }
 
+.slideShow_nb {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    color: white;
+}
+
 .fa-chevron-left, .fa-chevron-right {
     font-size: 120px;
     position: absolute;
