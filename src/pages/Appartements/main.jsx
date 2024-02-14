@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import SlideShow from '../../component/SlideShow/main'
 import InfoAppart from '../../component/InfoAppart/main'
 import Collapse from '../../component/Collapse/main'
-import redStar from '../../assets/redStar.svg'
+
 import '../../style/pages/appartements.css'
 // import grayStar from '../../assets/grayStar.svg'
 
@@ -39,53 +39,34 @@ function Appartements() {
         }
         fetchData()
 
-        // console.log(appartement.pictures[4])
+        // console.log(appartement.equipments)
+        // console.log(appartement.tags)
     }, [id, navigation, appartement])
 
     return (
-        <div>
-            {appartement && <SlideShow pictures={appartement.pictures[1]} />}
-            {appartement && (
+        appartement && (
+            <>
+                <SlideShow pictures={appartement.pictures} />
                 <InfoAppart
                     title={appartement.title}
                     location={appartement.location}
-                    tag={appartement.tag}
-                    name={
-                        <ul
-                            style={{
-                                listStyleType: 'none',
-                                padding: 0,
-                                margin: 0,
-                                color: '#ff6060',
-                                fontWeight: 'bold',
-                            }}
-                        >
-                            {appartement.host.name
-                                .split(/\s+/)
-                                .map((part, index) => (
-                                    <li key={index}>{part}</li>
-                                ))}
-                        </ul>
-                    }
+                    tags={appartement.tags}
+                    name={appartement.host.name}
                     picture={appartement.host.picture}
-                    rating={<img src={redStar} alt="étoile" />} // Trouver la solution étoile rouge et gris
+                    rating={appartement.rating * 1} // Trouver la solution étoile rouge et gris
                 />
-            )}
-            <div className="appartements_collapse">
-                {appartement && (
+                <div className="appartements_collapse">
                     <Collapse
                         title="Description"
                         description={appartement.description}
                     />
-                )}
-                {appartement && (
                     <Collapse
                         title="Équipements"
                         description={appartement.equipments}
                     />
-                )}
-            </div>
-        </div>
+                </div>
+            </>
+        )
     )
 }
 

@@ -1,0 +1,102 @@
+/* Css pour le composant Collapse */
+
+
+@keyframes SlideDown {
+  from {
+    transform: translateY(-100px);
+    -webkit-transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes SlideUp {
+    from {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100px);
+        -webkit-transform: translateY(-100px);
+    }
+}
+
+@keyframes spin180 {
+  from {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+  }
+  to {
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+  }
+}
+
+dl {
+    overflow: hidden;
+    position: relative;
+}
+    
+
+dt {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff6060;
+    padding: 10px 40px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+dd {
+    margin: 0;
+    padding: 15px 40px;
+    background-color: #f6f6f673;
+    border-radius: 0 0 5px 5px;
+    z-index: 1;
+}
+
+.visible i {
+    animation: spin180 0.3s ease-in-out forwards;
+    -webkit-animation: spin180 0.3s ease-in-out forwards;
+}
+
+.noVisible i {
+    animation: spin180 0.3s ease-in-out reverse forwards;
+    -webkit-animation: spin180 0.3s ease-in-out reverse forwards;
+}
+    
+.visible_Description {
+    animation: SlideDown 0.3s ease-in-out;
+    -webkit-animation: SlideDown 0.3s ease-in-out;
+}
+
+.noVisible_Description {
+    animation: SlideUp 0.3s ease-in-out;
+    -webkit-animation: SlideUp 0.3s ease-in-out;
+}
+
+.visible_Description p {
+    margin: 5px 0;
+}
+
+/* Média query Tablette */
+@media (max-width: 1024px) {
+    dt {
+        padding: 10px 20px;
+    }
+}
+
+/* Média query Mobile */
+@media (max-width: 768px) {
+    dd {
+        padding: 10px 20px;
+    }
+}
