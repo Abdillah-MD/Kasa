@@ -16,7 +16,6 @@ function InfoAppart({ title, location, tags, name, picture, rating }) {
                         </span>
                     ))}
                 </div>
-                {/* <p>{tag}</p> */}
             </div>
             <div className="info_NameRatio">
                 <div className="proprio">

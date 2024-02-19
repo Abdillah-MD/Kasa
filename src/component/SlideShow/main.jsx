@@ -11,7 +11,6 @@ function SlideShow({ pictures, title }) {
         if (pic >= pictures.length - 1) {
             setPic((pic = 0))
         }
-        console.log(pic)
     }
 
     // Permet d'animer le click gauche
@@ -20,7 +19,6 @@ function SlideShow({ pictures, title }) {
         if (pic === 0) {
             setPic(pictures.length - 1)
         }
-        console.log(pic)
     }
 
     return (

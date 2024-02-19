@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import ImageBcgMer from '../../assets/lamer_kasa.png'
 import styled from 'styled-components'
-import { locationList } from '../../Data/LocationList'
+// import { locationList } from '../../Data/LocationList' <== Premier fichier utilisé pour chercher les données avant utilisation de useEffect
 import AppartItem from '../../component/AppartItem/main'
 import Banner from '../../component/Banner/main'
 import '../../style/component/banner.css'
+import { useEffect, useState } from 'react'
 
 const AppartList = styled.div`
     display: grid;
@@ -29,11 +30,31 @@ const AppartList = styled.div`
 `
 
 function Home() {
+    const [locationList, setlocationList] = useState([])
+
+    // Utiliser useEffect pour faire appelle à fetch et répérer les données logements
+    useEffect(() => {
+        fetch('data/logements.json', {
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+        })
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (data) {
+                setlocationList(data)
+            })
+    }, [])
+
     return (
         <section>
-            <Banner brightness={`bannerBrightness`} cheminImage={ImageBcgMer}>
-                Chez vous, partout et ailleurs
-            </Banner>
+            <Banner
+                brightness={`bannerBrightness`}
+                cheminImage={ImageBcgMer}
+                h1={'Chez vous, partout et ailleurs'}
+            />
             <AppartList>
                 {locationList.map(({ id, title, cover }) => (
                     <Link

@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { locationList } from '../../Data/LocationList'
+// import { locationList } from '../../Data/LocationList'
 import { useEffect, useState } from 'react'
 import SlideShow from '../../component/SlideShow/main'
 import InfoAppart from '../../component/InfoAppart/main'
@@ -18,8 +18,16 @@ function Appartements() {
     // let photoAppart
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
+        fetch('../data/logements.json', {
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+        })
+            .then(function (response) {
+                return response.json()
+            })
+            .then((locationList) => {
                 const foundAppartement = locationList.find(
                     (location) => location.id === id
                 )
@@ -28,19 +36,7 @@ function Appartements() {
                 } else {
                     navigation('/page-introuvable')
                 }
-            } catch (error) {
-                console.error(
-                    "Erreur lors de la récupération des détails de l'appartement",
-                    error
-                )
-                // En cas d'erreur, redirigez l'utilisateur vers la page d'erreur 404
-                navigation('/page-introuvable')
-            }
-        }
-        fetchData()
-
-        // console.log(appartement.equipments)
-        // console.log(appartement.tags)
+            })
     }, [id, navigation, appartement])
 
     return (

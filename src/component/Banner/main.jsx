@@ -29,21 +29,21 @@ const SectionTitle = styled.div`
     }
 `
 
-function Banner({ children, cheminImage, brightness }) {
+function Banner({ h1 = '', cheminImage, brightness }) {
     return (
         <SectionTitle
             className={brightness}
             style={{ backgroundImage: `url(${cheminImage})` }}
         >
-            <h1 style={{ position: 'absolute', padding: '20px' }}>
-                {children}
-            </h1>
+            {h1 !== '' && (
+                <h1 style={{ position: 'absolute', padding: '20px' }}>{h1}</h1>
+            )}
         </SectionTitle>
     )
 }
 
 Banner.propTypes = {
-    children: PropTypes.string,
+    h1: PropTypes.string,
     cheminImage: PropTypes.string.isRequired,
     brightness: PropTypes.string, // Ajout prop pour assombrir le composant
 }

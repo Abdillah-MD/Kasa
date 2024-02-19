@@ -1,0 +1,42 @@
+/* Ce fichier concerne le style du header */
+.active {
+    /* text-decoration: underline; */
+    position: relative;
+    
+}
+
+.active::before {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: black;
+    position: absolute;
+    bottom: -5px;
+    transition: all 300ms ease-out;
+
+}
+
+.active:hover::before {
+    background: #ff6060;
+    transition: all 300ms ease-out;
+}
+
+.header_link {
+    color: black !important;
+    transition: all 300ms ease-out;
+}
+
+.header_link:hover {
+    color: #ff6060 !important;
+    transition: all 300ms ease-out;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        width: 60% !important;
+        justify-content: end !important;
+    }
+    .header_link {
+        margin-left: 15px;
+    }
+}

@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import KasaLogo from '../../assets/Kasa.svg'
 import styled from 'styled-components'
+import '../../style/component/header.css'
 
 const SecHeader = styled.header`
     display: flex;
@@ -18,16 +19,8 @@ const Nav = styled.div`
     display: flex;
     justify-content: space-around;
     color: black;
-    @media (max-width: 768px) {
-        width: 50%;
-    }
 `
-const NavLink = styled(Link)`
-    color: black;
-    &:hover {
-        color: #ff6060;
-    }
-`
+
 const Logo = styled.img`
     width: 10%;
     @media (max-width: 768px) {
@@ -39,9 +32,23 @@ function Header() {
     return (
         <SecHeader>
             <Logo src={KasaLogo} alt="Kasa" />
-            <Nav>
-                <NavLink to="/">Accueil</NavLink>
-                <NavLink to="/about">À propos</NavLink>
+            <Nav className="nav">
+                <NavLink
+                    className={(navData) =>
+                        navData.isActive ? 'active header_link' : 'header_link'
+                    }
+                    to="/"
+                >
+                    Accueil
+                </NavLink>
+                <NavLink
+                    className={(navData) =>
+                        navData.isActive ? 'active header_link' : 'header_link'
+                    }
+                    to="/about"
+                >
+                    À propos
+                </NavLink>
             </Nav>
         </SecHeader>
     )
