@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ImageBcgMer from '../../assets/lamer_kasa.png'
 import styled from 'styled-components'
 // import { locationList } from '../../Data/LocationList' <== Premier fichier utilisé pour chercher les données avant utilisation de useEffect
@@ -30,11 +30,22 @@ const AppartList = styled.div`
 `
 
 function Home() {
+    const navigate = useNavigate()
+
+    // Redirige vers la page /Kasa si le path est vide
+    useEffect(() => {
+        // Redirige vers la page /Kasa si le chemin est la page d'accueil
+        if (window.location.pathname === '/') {
+            navigate('/Kasa')
+        }
+    }, [navigate])
+
     const [locationList, setlocationList] = useState([])
 
     // Utiliser useEffect pour faire appelle à fetch et répérer les données logements
     useEffect(() => {
-        fetch('/data/logements.json', {
+        // Récupérer données
+        fetch('/public/data/logements.json', {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',

@@ -37,7 +37,7 @@ function Header() {
                     className={(navData) =>
                         navData.isActive ? 'active header_link' : 'header_link'
                     }
-                    to="/"
+                    to="/Kasa"
                 >
                     Accueil
                 </NavLink>
