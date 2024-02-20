@@ -45,7 +45,7 @@ function Home() {
     // Utiliser useEffect pour faire appelle à fetch et répérer les données logements
     useEffect(() => {
         // Récupérer données
-        fetch('/public/data/logements.json', {
+        fetch('data/logements.json', {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
