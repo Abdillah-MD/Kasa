@@ -69,7 +69,7 @@ function Home() {
             <AppartList>
                 {locationList.map(({ id, title, cover }) => (
                     <Link
-                        to={`/appartements/${id}`}
+                        to={`/Kasa/appartements/${id}`}
                         key={id}
                         style={{
                             borderRadius: '15px',
