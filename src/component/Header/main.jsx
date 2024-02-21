@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import KasaLogo from '../../assets/Kasa.svg'
 import styled from 'styled-components'
 import '../../style/component/header.css'
@@ -29,26 +29,33 @@ const Logo = styled.img`
 `
 
 function Header() {
+    // utilisation useLocation, obtenir l'objet location qui contient des informations sur l'URL actuelle.
+    const location = useLocation()
+
     return (
         <SecHeader>
             <Logo src={KasaLogo} alt="Kasa" />
             <Nav className="nav">
-                <NavLink
-                    className={(navData) =>
-                        navData.isActive ? 'active header_link' : 'header_link'
+                <Link
+                    className={
+                        location.pathname === `/Kasa/`
+                            ? 'active header_link'
+                            : 'header_link'
                     }
                     to="/Kasa/"
                 >
                     Accueil
-                </NavLink>
-                <NavLink
-                    className={(navData) =>
-                        navData.isActive ? 'active header_link' : 'header_link'
+                </Link>
+                <Link
+                    className={
+                        location.pathname === '/Kasa/about'
+                            ? 'active header_link'
+                            : 'header_link'
                     }
                     to="/Kasa/about"
                 >
                     À propos
-                </NavLink>
+                </Link>
             </Nav>
         </SecHeader>
     )
